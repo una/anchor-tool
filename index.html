@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anchor position tool</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div class="demo-and-code">
+    <div class="containing-block">
+      <button id="anchor-btn" popovertarget="my-tooltip">
+        <p aria-hidden="true">?</p>
+        <p class="sr-only">Open Tooltip</p>
+      </button>
+      <div class="tooltip top" id="my-tooltip" class="tooltip" anchor="anchor-btn" popover="manual">Hello World<br>Hello World</div>
+    </div>
+    <div class="code-area">
+      <div class="code-block">
+        Inset area demo
+      </div>
+      <button class="copy-button">copy</button>
+    </div>
+  </div>
+  
+  <ul class="anchor-positions">
+    <li>
+      <button id="top">
+        <figure>
+          <img src="./img/anchor-position-01.svg" alt="">
+          <figcaption class="sr-only">Top</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="top-center">
+        <figure>
+          <img src="./img/anchor-position-02.svg" alt="">
+          <figcaption class="sr-only">Top Center</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="center-top">
+        <figure>
+          <img src="./img/anchor-position-03.svg" alt="">
+          <figcaption class="sr-only">Center Top</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="top-full">
+        <figure>
+          <img src="./img/anchor-position-04.svg" alt="">
+          <figcaption class="sr-only">Top Full</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="left">
+        <figure>
+          <img src="./img/anchor-position-05.svg" alt="">
+          <figcaption class="sr-only">left</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="left-center">
+        <figure>
+          <img src="./img/anchor-position-06.svg" alt="">
+          <figcaption class="sr-only">left Center</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="center-left">
+        <figure>
+          <img src="./img/anchor-position-07.svg" alt="">
+          <figcaption class="sr-only">Center left</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="left-full">
+        <figure>
+          <img src="./img/anchor-position-08.svg" alt="">
+          <figcaption class="sr-only">left Full</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="bottom">
+        <figure>
+          <img src="./img/anchor-position-09.svg" alt="">
+          <figcaption class="sr-only">bottom</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="bottom-center">
+        <figure>
+          <img src="./img/anchor-position-10.svg" alt="">
+          <figcaption class="sr-only">bottom Center</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="center-bottom">
+        <figure>
+          <img src="./img/anchor-position-11.svg" alt="">
+          <figcaption class="sr-only">Center bottom</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="bottom-full">
+        <figure>
+          <img src="./img/anchor-position-12.svg" alt="">
+          <figcaption class="sr-only">Top Full</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="right">
+        <figure>
+          <img src="./img/anchor-position-13.svg" alt="">
+          <figcaption class="sr-only">right</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="right-center">
+        <figure>
+          <img src="./img/anchor-position-14.svg" alt="">
+          <figcaption class="sr-only">right Center</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="center-right">
+        <figure>
+          <img src="./img/anchor-position-15.svg" alt="">
+          <figcaption class="sr-only">Center right</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="right-full">
+        <figure>
+          <img src="./img/anchor-position-16.svg" alt="">
+          <figcaption class="sr-only">right Full</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="top-left">
+        <figure>
+          <img src="./img/anchor-position-17.svg" alt="">
+          <figcaption class="sr-only">top left</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="top-right">
+        <figure>
+          <img src="./img/anchor-position-20.svg" alt="">
+          <figcaption class="sr-only">top right</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="bottom-left">
+        <figure>
+          <img src="./img/anchor-position-18.svg" alt="">
+          <figcaption class="sr-only">bottom left</figcaption>
+        </figure>
+      </button>
+    </li>
+    <li>
+      <button id="bottom-right">
+        <figure>
+          <img src="./img/anchor-position-19.svg" alt="">
+          <figcaption class="sr-only">bottom right</figcaption>
+        </figure>
+      </button>
+    </li>
+  </ul>
+  
+  <script>
+    const tooltip = document.getElementById('my-tooltip');
+    const anchorPositions = document.querySelectorAll('.anchor-positions button');
+    const codeblock = document.querySelector('.code-block')
+    let activeButton = null; 
+
+    const cssStyles = {
+      'top': {
+        insetArea: 'start' 
+      },
+      'top-center': {
+        insetArea: 'start / start center' 
+      },
+      'center-top': { 
+        insetArea: 'start / center end' 
+      },
+      'top-full': { 
+        insetArea: 'start' 
+      },
+      'left': { 
+        insetArea: 'left' 
+      },
+      'left-center': { 
+        insetArea: 'start center / start' 
+      },
+      'center-left': { 
+        insetArea: 'center end / start' 
+      },
+      'left-full': { 
+        insetArea: 'all / left' 
+      },
+      'right': { 
+        insetArea: 'right' 
+      },
+      'right-center': { 
+        insetArea: 'top center / end' 
+      },
+      'center-right': { 
+        insetArea: 'center end / end' 
+      },
+      'right-full': { 
+        insetArea: 'all / right' 
+      },
+      'bottom': { 
+        insetArea: 'bottom'
+      },
+      'bottom-center': { 
+        insetArea: 'end / start center' 
+      },
+      'center-bottom': { 
+        insetArea: 'end / center end' 
+      },
+      'bottom-full': { 
+        insetArea: 'end' 
+      },
+      'top-left': { 
+        insetArea: 'start / start'
+      },
+      'top-right': { 
+        insetArea: 'start / end' 
+      },
+      'bottom-left': { 
+        insetArea: 'end / start' 
+      },
+      'bottom-right': { 
+        insetArea: 'end / end' 
+      }
+    };
+
+    anchorPositions.forEach(button => {
+      button.addEventListener('click', () => {
+        // Manage the "active" class on the buttons
+        if (activeButton) {
+          activeButton.classList.remove('active');  
+        }
+        button.classList.add('active'); 
+        activeButton = button; 
+
+        // Apply inline styles to the tooltip
+        const styles = cssStyles[button.id];
+        if (styles) {
+          for (const prop in styles) {
+            tooltip.style[prop] = styles[prop];
+          }
+          let codeText = '';
+          for (const prop in styles) {
+            codeText += `inset-area: ${tooltip.style[prop]};`; 
+          }
+          codeblock.textContent = codeText;
+        } else {
+          // Clear inline styles in case no matching class is found
+          tooltip.style = ''; 
+        }
+      });
+    });
+
+    // Function to copy text from the codeblock
+    function copyCodeblock() {
+      const codeblock = document.querySelector('.code-block');
+      if (codeblock) {
+        const text = codeblock.textContent;
+        navigator.clipboard.writeText(text)
+          .then(() => {
+            console.log('CSS copied to clipboard!'); 
+            // Optional: You can add a visual cue here to indicate success
+          })
+          .catch(err => {
+            console.error('Error copying to clipboard: ', err);
+          });
+      }
+    }
+
+    const copyButton = document.querySelector('.copy-button');
+    copyButton.addEventListener('click', copyCodeblock);
+  </script>
+</body>
+</html>
