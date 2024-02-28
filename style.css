@@ -99,6 +99,22 @@
   border: 2px solid white;
 }
 
+.red {
+  filter: hue-rotate(115deg);
+}
+
+.orange {
+  filter: hue-rotate(170deg);
+}
+
+.green {
+  filter: hue-rotate(235deg);
+}
+
+.violet {
+  filter: hue-rotate(45deg);
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   display: grid;
