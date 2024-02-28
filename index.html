@@ -8,22 +8,6 @@
 </head>
 <body>
 
-  <div class="demo-and-code">
-    <div class="containing-block">
-      <button id="anchor-btn" popovertarget="my-tooltip">
-        <p aria-hidden="true">?</p>
-        <p class="sr-only">Open Tooltip</p>
-      </button>
-      <div class="tooltip top" id="my-tooltip" class="tooltip" anchor="anchor-btn" popover="manual">Hello World<br>Hello World</div>
-    </div>
-    <div class="code-area">
-      <div class="code-block">
-        Inset area demo
-      </div>
-      <button class="copy-button">copy</button>
-    </div>
-  </div>
-  
   <ul class="anchor-positions">
     <li>
       <button id="top">
@@ -186,6 +170,22 @@
       </button>
     </li>
   </ul>
+
+  <div class="demo-and-code">
+    <div class="containing-block">
+      <button id="anchor-btn" popovertarget="my-tooltip">
+        <p aria-hidden="true">?</p>
+        <p class="sr-only">Open Tooltip</p>
+      </button>
+      <div class="tooltip top" id="my-tooltip" style="inset-area: start;" anchor="anchor-btn" popover="manual">I'm anchor positioned<br>with inset-area</div>
+    </div>
+    <div class="code-area">
+      <div class="code-block">
+        inset-area: start;
+      </div>
+      <button class="copy-button"><p class="sr-only">copy</p></button>
+    </div>
+  </div>
   
   <script>
     const tooltip = document.getElementById('my-tooltip');
@@ -231,7 +231,7 @@
         insetArea: 'all / right' 
       },
       'bottom': { 
-        insetArea: 'bottom'
+        insetArea: 'end'
       },
       'bottom-center': { 
         insetArea: 'end / start center' 
@@ -301,6 +301,9 @@
 
     const copyButton = document.querySelector('.copy-button');
     copyButton.addEventListener('click', copyCodeblock);
+
+    // Set up on load
+    tooltip.showPopover();
   </script>
 </body>
 </html>
