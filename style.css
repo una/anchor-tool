@@ -51,6 +51,7 @@
   background: none;
   border: none;
   width: 4rem;
+  padding: 0;
 }
 
 .code-area {
@@ -68,10 +69,17 @@
   top: 0;
   width: 2rem;
   height: 2rem;
-  background: steelblue;
+  background-color: steelblue;
   color: white;
   border: none;
   padding: 0.5rem;
+  transition: background-color 0.25s;
+}
+
+.copy-button:hover,
+.copy-button:focus {
+  background-color: green;
+  cursor: pointer;
 }
 
 .copy-button::before {
@@ -94,9 +102,37 @@
   height: 0.8rem;
   top: 0.7rem;
   left: 0.7rem;
-  background: steelblue;
+  background-color: inherit;
   border-radius: 5px;
   border: 2px solid white;
+}
+
+.vis {
+  display: block;
+  opacity: 0;
+}
+
+.vis::after {
+  content: 'copied!';
+  color: steelblue;
+  position: absolute;
+  right: -3rem;
+  top: 0.5rem;
+}
+
+.vis.success {
+  animation: success 0.2s linear forwards;
+}
+
+@keyframes success {
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
 }
 
 .red {

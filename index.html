@@ -177,13 +177,13 @@
         <p aria-hidden="true">?</p>
         <p class="sr-only">Open Tooltip</p>
       </button>
-      <div class="tooltip top" id="my-tooltip" style="inset-area: start;" anchor="anchor-btn" popover="manual">I'm anchor positioned<br>with inset-area</div>
+      <div class="tooltip top" id="my-tooltip" style="inset-area: start;" anchor="anchor-btn" popover="manual">Hello friends!<br>I'm anchor positioned<br>with inset-area</div>
     </div>
     <div class="code-area">
       <div class="code-block">
         inset-area: start;
       </div>
-      <button class="copy-button"><p class="sr-only">copy</p></button>
+      <button class="copy-button"><p class="sr-only">copy</p><div class="vis"></div></button>
     </div>
   </div>
   
@@ -195,64 +195,64 @@
 
     const cssStyles = {
       'top': {
-        insetArea: 'start' 
+        insetArea: 'top' 
       },
       'top-center': {
-        insetArea: 'start / start center' 
+        insetArea: 'top span-left' 
       },
       'center-top': { 
-        insetArea: 'start / center end' 
+        insetArea: 'top span-right' 
       },
       'top-full': { 
-        insetArea: 'start' 
+        insetArea: 'top span-all' 
       },
       'left': { 
         insetArea: 'left' 
       },
       'left-center': { 
-        insetArea: 'start center / start' 
+        insetArea: 'left span-top' 
       },
       'center-left': { 
-        insetArea: 'center end / start' 
+        insetArea: 'left span-bottom' 
       },
       'left-full': { 
-        insetArea: 'all / left' 
+        insetArea: 'left span-all' 
       },
       'right': { 
         insetArea: 'right' 
       },
       'right-center': { 
-        insetArea: 'top center / end' 
+        insetArea: 'right span-top' 
       },
       'center-right': { 
-        insetArea: 'center end / end' 
+        insetArea: 'right span-bottom' 
       },
       'right-full': { 
-        insetArea: 'all / right' 
+        insetArea: 'right span-all' 
       },
       'bottom': { 
-        insetArea: 'end'
+        insetArea: 'bottom'
       },
       'bottom-center': { 
-        insetArea: 'end / start center' 
+        insetArea: 'bottom span-left' 
       },
       'center-bottom': { 
-        insetArea: 'end / center end' 
+        insetArea: 'bottom span-right' 
       },
       'bottom-full': { 
-        insetArea: 'end' 
+        insetArea: 'bottom span-all' 
       },
       'top-left': { 
-        insetArea: 'start / start'
+        insetArea: 'top left'
       },
       'top-right': { 
-        insetArea: 'start / end' 
+        insetArea: 'top right' 
       },
       'bottom-left': { 
-        insetArea: 'end / start' 
+        insetArea: 'bottom left' 
       },
       'bottom-right': { 
-        insetArea: 'end / end' 
+        insetArea: 'bottom right' 
       }
     };
 
@@ -262,18 +262,18 @@
         if (activeButton) {
           activeButton.classList.remove('active');  
         }
-        button.classList.add('active'); 
+        button.classList.add('active');
         activeButton = button; 
 
         // Apply inline styles to the tooltip
-        const styles = cssStyles[button.id];
+        const styles = cssStyles[activeButton.id];
         if (styles) {
           for (const prop in styles) {
             tooltip.style[prop] = styles[prop];
           }
           let codeText = '';
           for (const prop in styles) {
-            codeText += `inset-area: ${tooltip.style[prop]};`; 
+            codeText += `inset-area: ${styles[prop]};`; 
           }
           codeblock.textContent = codeText;
         } else {
@@ -291,7 +291,9 @@
         navigator.clipboard.writeText(text)
           .then(() => {
             console.log('CSS copied to clipboard!'); 
-            // Optional: You can add a visual cue here to indicate success
+            const vis = document.querySelector('.vis');
+            vis.classList.add('success');
+            setTimeout(() => {vis.classList.remove('success')}, 2500)
           })
           .catch(err => {
             console.error('Error copying to clipboard: ', err);
