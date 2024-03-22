@@ -177,11 +177,11 @@
         <p aria-hidden="true">?</p>
         <p class="sr-only">Open Tooltip</p>
       </button>
-      <div class="tooltip top" id="my-tooltip" style="inset-area: start;" anchor="anchor-btn" popover="manual">Hello friends!<br>I'm anchor positioned<br>with inset-area</div>
+      <div class="tooltip top" id="my-tooltip" style="inset-area: top;" anchor="anchor-btn" popover="manual">Hello friends!<br>I'm anchor positioned<br>with inset-area</div>
     </div>
     <div class="code-area">
       <div class="code-block">
-        inset-area: start;
+        inset-area: top;
       </div>
       <button class="copy-button"><p class="sr-only">copy</p><div class="vis"></div></button>
     </div>
@@ -264,21 +264,25 @@
         }
         button.classList.add('active');
         activeButton = button; 
-
-        // Apply inline styles to the tooltip
-        const styles = cssStyles[activeButton.id];
-        if (styles) {
-          for (const prop in styles) {
-            tooltip.style[prop] = styles[prop];
-          }
-          let codeText = '';
-          for (const prop in styles) {
-            codeText += `inset-area: ${styles[prop]};`; 
-          }
-          codeblock.textContent = codeText;
-        } else {
-          // Clear inline styles in case no matching class is found
-          tooltip.style = ''; 
+        
+        if (document.startViewTransition) {
+          document.startViewTransition(() => {
+            // Apply inline styles to the tooltip
+            const styles = cssStyles[activeButton.id];
+            if (styles) {
+              for (const prop in styles) {
+                tooltip.style[prop] = styles[prop];
+              }
+              let codeText = '';
+              for (const prop in styles) {
+                codeText += `inset-area: ${styles[prop]};`; 
+              }
+              codeblock.textContent = codeText;
+            } else {
+              // Clear inline styles in case no matching class is found
+              tooltip.style = ''; 
+            }
+          });
         }
       });
     });
