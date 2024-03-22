@@ -7,183 +7,188 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-  <ul class="anchor-positions">
-    <li class="red">
-      <button id="top">
-        <figure>
-          <img src="./img/anchor-position-01.svg" alt="">
-          <figcaption class="sr-only">Top</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="red">
-      <button id="top-center">
-        <figure>
-          <img src="./img/anchor-position-02.svg" alt="">
-          <figcaption class="sr-only">Top Center</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="red">
-      <button id="center-top">
-        <figure>
-          <img src="./img/anchor-position-03.svg" alt="">
-          <figcaption class="sr-only">Center Top</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="red">
-      <button id="top-full">
-        <figure>
-          <img src="./img/anchor-position-04.svg" alt="">
-          <figcaption class="sr-only">Top Full</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="orange">
-      <button id="left">
-        <figure>
-          <img src="./img/anchor-position-05.svg" alt="">
-          <figcaption class="sr-only">left</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="orange">
-      <button id="left-center">
-        <figure>
-          <img src="./img/anchor-position-06.svg" alt="">
-          <figcaption class="sr-only">left Center</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="orange">
-      <button id="center-left">
-        <figure>
-          <img src="./img/anchor-position-07.svg" alt="">
-          <figcaption class="sr-only">Center left</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="orange">
-      <button id="left-full">
-        <figure>
-          <img src="./img/anchor-position-08.svg" alt="">
-          <figcaption class="sr-only">left Full</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="green">
-      <button id="bottom">
-        <figure>
-          <img src="./img/anchor-position-09.svg" alt="">
-          <figcaption class="sr-only">bottom</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="green">
-      <button id="bottom-center">
-        <figure>
-          <img src="./img/anchor-position-10.svg" alt="">
-          <figcaption class="sr-only">bottom Center</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="green">
-      <button id="center-bottom">
-        <figure>
-          <img src="./img/anchor-position-11.svg" alt="">
-          <figcaption class="sr-only">Center bottom</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="green">
-      <button id="bottom-full">
-        <figure>
-          <img src="./img/anchor-position-12.svg" alt="">
-          <figcaption class="sr-only">Top Full</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="blue">
-      <button id="right">
-        <figure>
-          <img src="./img/anchor-position-13.svg" alt="">
-          <figcaption class="sr-only">right</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="blue">
-      <button id="right-center">
-        <figure>
-          <img src="./img/anchor-position-14.svg" alt="">
-          <figcaption class="sr-only">right Center</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="blue">
-      <button id="center-right">
-        <figure>
-          <img src="./img/anchor-position-15.svg" alt="">
-          <figcaption class="sr-only">Center right</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="blue">
-      <button id="right-full">
-        <figure>
-          <img src="./img/anchor-position-16.svg" alt="">
-          <figcaption class="sr-only">right Full</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="violet">
-      <button id="top-left">
-        <figure>
-          <img src="./img/anchor-position-17.svg" alt="">
-          <figcaption class="sr-only">top left</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="violet">
-      <button id="top-right">
-        <figure>
-          <img src="./img/anchor-position-20.svg" alt="">
-          <figcaption class="sr-only">top right</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="violet">
-      <button id="bottom-left">
-        <figure>
-          <img src="./img/anchor-position-18.svg" alt="">
-          <figcaption class="sr-only">bottom left</figcaption>
-        </figure>
-      </button>
-    </li>
-    <li class="violet">
-      <button id="bottom-right">
-        <figure>
-          <img src="./img/anchor-position-19.svg" alt="">
-          <figcaption class="sr-only">bottom right</figcaption>
-        </figure>
-      </button>
-    </li>
-  </ul>
-
-  <div class="demo-and-code">
-    <div class="containing-block">
-      <button id="anchor-btn" popovertarget="my-tooltip">
-        <p aria-hidden="true">?</p>
-        <p class="sr-only">Open Tooltip</p>
-      </button>
-      <div class="tooltip top" id="my-tooltip" style="inset-area: top;" anchor="anchor-btn" popover="manual">Hello friends!<br>I'm anchor positioned<br>with inset-area</div>
-    </div>
-    <div class="code-area">
-      <div class="code-block">
-        inset-area: top;
+  <div class="note">
+    This demo only works in Chrome 125+ (current Canary)
+  </div>
+  
+  <div class="key-and-demo">
+    <ul class="anchor-positions">
+      <li class="red">
+        <button id="top">
+          <figure>
+            <img src="./img/anchor-position-01.svg" alt="">
+            <figcaption class="sr-only">Top</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="red">
+        <button id="top-center">
+          <figure>
+            <img src="./img/anchor-position-02.svg" alt="">
+            <figcaption class="sr-only">Top Center</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="red">
+        <button id="center-top">
+          <figure>
+            <img src="./img/anchor-position-03.svg" alt="">
+            <figcaption class="sr-only">Center Top</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="red">
+        <button id="top-full">
+          <figure>
+            <img src="./img/anchor-position-04.svg" alt="">
+            <figcaption class="sr-only">Top Full</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="orange">
+        <button id="left">
+          <figure>
+            <img src="./img/anchor-position-05.svg" alt="">
+            <figcaption class="sr-only">left</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="orange">
+        <button id="left-center">
+          <figure>
+            <img src="./img/anchor-position-06.svg" alt="">
+            <figcaption class="sr-only">left Center</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="orange">
+        <button id="center-left">
+          <figure>
+            <img src="./img/anchor-position-07.svg" alt="">
+            <figcaption class="sr-only">Center left</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="orange">
+        <button id="left-full">
+          <figure>
+            <img src="./img/anchor-position-08.svg" alt="">
+            <figcaption class="sr-only">left Full</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="green">
+        <button id="bottom">
+          <figure>
+            <img src="./img/anchor-position-09.svg" alt="">
+            <figcaption class="sr-only">bottom</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="green">
+        <button id="bottom-center">
+          <figure>
+            <img src="./img/anchor-position-10.svg" alt="">
+            <figcaption class="sr-only">bottom Center</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="green">
+        <button id="center-bottom">
+          <figure>
+            <img src="./img/anchor-position-11.svg" alt="">
+            <figcaption class="sr-only">Center bottom</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="green">
+        <button id="bottom-full">
+          <figure>
+            <img src="./img/anchor-position-12.svg" alt="">
+            <figcaption class="sr-only">Top Full</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="blue">
+        <button id="right">
+          <figure>
+            <img src="./img/anchor-position-13.svg" alt="">
+            <figcaption class="sr-only">right</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="blue">
+        <button id="right-center">
+          <figure>
+            <img src="./img/anchor-position-14.svg" alt="">
+            <figcaption class="sr-only">right Center</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="blue">
+        <button id="center-right">
+          <figure>
+            <img src="./img/anchor-position-15.svg" alt="">
+            <figcaption class="sr-only">Center right</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="blue">
+        <button id="right-full">
+          <figure>
+            <img src="./img/anchor-position-16.svg" alt="">
+            <figcaption class="sr-only">right Full</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="violet">
+        <button id="top-left">
+          <figure>
+            <img src="./img/anchor-position-17.svg" alt="">
+            <figcaption class="sr-only">top left</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="violet">
+        <button id="top-right">
+          <figure>
+            <img src="./img/anchor-position-20.svg" alt="">
+            <figcaption class="sr-only">top right</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="violet">
+        <button id="bottom-left">
+          <figure>
+            <img src="./img/anchor-position-18.svg" alt="">
+            <figcaption class="sr-only">bottom left</figcaption>
+          </figure>
+        </button>
+      </li>
+      <li class="violet">
+        <button id="bottom-right">
+          <figure>
+            <img src="./img/anchor-position-19.svg" alt="">
+            <figcaption class="sr-only">bottom right</figcaption>
+          </figure>
+        </button>
+      </li>
+    </ul>
+  
+    <div class="demo-and-code">
+      <div class="containing-block">
+        <button id="anchor-btn" popovertarget="my-tooltip">
+          <p aria-hidden="true">?</p>
+          <p class="sr-only">Open Tooltip</p>
+        </button>
+        <div class="tooltip top" id="my-tooltip" style="inset-area: top;" anchor="anchor-btn" popover="manual">Hello friends!<br>I'm anchor positioned<br>with inset-area</div>
       </div>
-      <button class="copy-button"><p class="sr-only">copy</p><div class="vis"></div></button>
+      <div class="code-area">
+        <div class="code-block">
+          inset-area: top;
+        </div>
+        <button class="copy-button"><p class="sr-only">copy</p><div class="vis"></div></button>
+      </div>
     </div>
   </div>
   
