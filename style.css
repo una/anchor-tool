@@ -87,7 +87,7 @@
   height: 3.5rem;
 
   @media (width <= 768px) {
-    width: 18rem;
+    width: 19rem;
   }
 }
 
@@ -193,7 +193,8 @@ body {
 
   @media (width <= 768px) {
     height: auto;
-    padding-top: 5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 
