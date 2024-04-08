@@ -190,6 +190,11 @@ body {
   height: calc(100dvh - 4rem);
   align-items: center;
   overflow-x: hidden;
+
+  @media (width <= 768px) {
+    height: auto;
+    padding-top: 5rem;
+  }
 }
 
 .sr-only {
