@@ -190,13 +190,20 @@
         <button class="copy-button"><p class="sr-only">copy</p><div class="vis"></div></button>
       </div>
     </div>
+    <div class="logical">
+      <input id="logical" type="checkbox">
+      <label for="logical">Logical properties</label>
+    </div>
+    
   </div>
   
   <script>
     const tooltip = document.getElementById('my-tooltip');
     const anchorPositions = document.querySelectorAll('.anchor-positions button');
     const codeblock = document.querySelector('.code-block')
-    let activeButton = null; 
+    let activeButton = anchorPositions[0];
+    const logicalCheckbox = document.querySelector('#logical');
+    let logical = logicalCheckbox.checked;
 
     const cssStyles = {
       'top': {
@@ -261,6 +268,98 @@
       }
     };
 
+    const logicalStyles = {
+      'top': {
+        insetArea: 'block-start' 
+      },
+      'top-center': {
+        insetArea: 'block-start span-inline-start' 
+      },
+      'center-top': { 
+        insetArea: 'block-start span-inline-end' 
+      },
+      'top-full': { 
+        insetArea: 'block-start span-all' 
+      },
+      'left': { 
+        insetArea: 'inline-start' 
+      },
+      'left-center': { 
+        insetArea: 'inline-start span-block-start' 
+      },
+      'center-left': { 
+        insetArea: 'inline-start span-block-bottom' 
+      },
+      'left-full': { 
+        insetArea: 'inline-start span-all' 
+      },
+      'right': { 
+        insetArea: 'inline-end' 
+      },
+      'right-center': { 
+        insetArea: 'inline-end span-block-start' 
+      },
+      'center-right': { 
+        insetArea: 'inline-end span-block-bottom' 
+      },
+      'right-full': { 
+        insetArea: 'inline-end span-all' 
+      },
+      'bottom': { 
+        insetArea: 'block-end'
+      },
+      'bottom-center': { 
+        insetArea: 'block-end span-inline-start' 
+      },
+      'center-bottom': { 
+        insetArea: 'block-end span-inline-end' 
+      },
+      'bottom-full': { 
+        insetArea: 'block-end span-all' 
+      },
+      'top-left': { 
+        insetArea: 'start'
+      },
+      'top-right': { 
+        insetArea: 'block-start inline-end'
+      },
+      'bottom-left': { 
+        insetArea: 'block-end inline-start' 
+      },
+      'bottom-right': { 
+        insetArea: 'end' 
+      }
+    };
+
+    let styleRef = cssStyles;
+
+    function updateText() {
+      // If anchor is supported, VT is supported, don't need a check
+      document.startViewTransition(() => {
+        // Apply inline styles to the tooltip
+        const styles = styleRef[activeButton.id];
+        if (styles) {
+          for (const prop in styles) {
+            tooltip.style[prop] = styles[prop];
+          }
+          let codeText = '';
+          for (const prop in styles) {
+            codeText += `inset-area: ${styles[prop]};`; 
+          }
+          codeblock.textContent = codeText;
+        } else {
+          // Clear inline styles in case no matching class is found
+          tooltip.style = ''; 
+        }
+      });
+    }
+
+    logicalCheckbox.addEventListener('change', () => {
+      logical = logicalCheckbox.checked;
+      styleRef = logicalStyles;
+      updateText();
+    });
+
     anchorPositions.forEach(button => {
       button.addEventListener('click', () => {
         // Manage the "active" class on the buttons
@@ -270,25 +369,7 @@
         button.classList.add('active');
         activeButton = button; 
         
-        if (document.startViewTransition) {
-          document.startViewTransition(() => {
-            // Apply inline styles to the tooltip
-            const styles = cssStyles[activeButton.id];
-            if (styles) {
-              for (const prop in styles) {
-                tooltip.style[prop] = styles[prop];
-              }
-              let codeText = '';
-              for (const prop in styles) {
-                codeText += `inset-area: ${styles[prop]};`; 
-              }
-              codeblock.textContent = codeText;
-            } else {
-              // Clear inline styles in case no matching class is found
-              tooltip.style = ''; 
-            }
-          });
-        }
+        updateText()
       });
     });
 
@@ -299,7 +380,6 @@
         const text = codeblock.textContent;
         navigator.clipboard.writeText(text)
           .then(() => {
-            console.log('CSS copied to clipboard!'); 
             const vis = document.querySelector('.vis');
             vis.classList.add('success');
             setTimeout(() => {vis.classList.remove('success')}, 2500)
@@ -315,6 +395,7 @@
 
     // Set up on load
     tooltip.showPopover();
+    activeButton.classList.add('active');
   </script>
 </body>
 </html>

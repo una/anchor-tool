@@ -32,6 +32,19 @@
   display: grid;
   grid-template-columns: auto auto;
   border: 1px solid;
+  position: relative;
+  bottom: 0;
+
+  @media (width <= 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.logical {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 1rem;
 }
 
 .anchor-positions {
@@ -46,6 +59,10 @@
   width: max-content;
   justify-self: end;
   z-index: 1;
+
+  @media (width <= 768px) {
+    justify-self: center;
+  }
 }
 
 .anchor-positions li {
@@ -66,6 +83,12 @@
   border-left: 1px solid lightgray;
   position: relative;
   font-size: 1.2rem;
+  width: 23rem;
+  height: 3.5rem;
+
+  @media (width <= 768px) {
+    width: 18rem;
+  }
 }
 
 .copy-button {
@@ -166,7 +189,7 @@ body {
   margin: 0;
   height: calc(100dvh - 4rem);
   align-items: center;
-  gap: 2rem;
+  overflow-x: hidden;
 }
 
 .sr-only {
@@ -190,11 +213,16 @@ img {
 
 .containing-block {
   background: lightgray;
-  height: calc(100% - 4rem);
+  height: calc(100% - 6rem);
   display: grid;
   place-items: center;
   position: relative;
-  min-width: 400px;
+  min-width: 23rem;
+  min-height: 15rem;
+
+  @media (width <= 768px) {
+    min-width: 18rem;
+  }
 }
 
 .containing-block::after {
