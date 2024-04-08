@@ -288,7 +288,7 @@
         insetArea: 'inline-start span-block-start' 
       },
       'center-left': { 
-        insetArea: 'inline-start span-block-bottom' 
+        insetArea: 'inline-start span-block-end' 
       },
       'left-full': { 
         insetArea: 'inline-start span-all' 
@@ -300,7 +300,7 @@
         insetArea: 'inline-end span-block-start' 
       },
       'center-right': { 
-        insetArea: 'inline-end span-block-bottom' 
+        insetArea: 'inline-end span-block-end' 
       },
       'right-full': { 
         insetArea: 'inline-end span-all' 
@@ -356,7 +356,12 @@
 
     logicalCheckbox.addEventListener('change', () => {
       logical = logicalCheckbox.checked;
-      styleRef = logicalStyles;
+      if (logical) {
+        styleRef = logicalStyles;
+      } else {
+        styleRef = cssStyles;
+      }
+
       updateText();
     });
 
