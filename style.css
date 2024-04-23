@@ -3,6 +3,7 @@
   border: 2px solid;
   padding: 0.5rem;
   view-transition-name: tooltip;
+  position-anchor: --tooltip;
   
   /*  reset  */
   margin: 0;
@@ -20,6 +21,8 @@
   display: grid;
   place-content: center;
   border: 2px solid var(--bg);
+  anchor-name: --tooltip;
+  
 }
 
 /* #anchor-btn:hover + .tooltip {
