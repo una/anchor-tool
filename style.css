@@ -2,7 +2,7 @@
   background: aliceblue;
   border: 2px solid;
   padding: 0.5rem;
-  view-transition-name: tooltip;
+  view-transition-name: --tooltip; /* double dash is optional */
   position-anchor: --tooltip;
   
   /*  reset  */
