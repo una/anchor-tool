@@ -37,6 +37,7 @@
   border: 1px solid;
   position: relative;
   bottom: 0;
+  top: 2rem;
 
   @media (width <= 768px) {
     grid-template-columns: 1fr;
