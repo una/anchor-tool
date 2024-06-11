@@ -2,11 +2,9 @@
   background: aliceblue;
   border: 2px solid;
   padding: 0.5rem;
+  position: absolute;
   view-transition-name: --tooltip; /* double dash is optional */
   position-anchor: --tooltip;
-  
-  /*  reset  */
-  margin: 0;
 }
 
 #anchor-btn {
@@ -20,7 +18,7 @@
   font-weight: 800;
   display: grid;
   place-content: center;
-  border: 2px solid var(--bg);
+  border: 2px solid navy;
   anchor-name: --tooltip;
   
 }
@@ -229,6 +227,7 @@ img {
   position: relative;
   min-width: 23rem;
   min-height: 15rem;
+  place-content: center;
 
   @media (width <= 768px) {
     min-width: 18rem;
