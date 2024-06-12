@@ -191,7 +191,8 @@
           <p aria-hidden="true">?</p>
           <p class="sr-only">Open Tooltip</p>
         </button>
-        <div class="tooltip top" id="my-tooltip" style="inset-area: top;">Hello friends!<br>I'm anchor positioned<br>with inset-area</div>
+        <div class="tooltip top" id="my-tooltip" style="inset-area: top;">Positioned element!</div>
+        <div id="imcb-visualizer" style="inset-area: top;"></div>
       </div>
       <div class="code-area">
         <div class="code-block">
@@ -209,6 +210,7 @@
   
   <script>
     const tooltip = document.getElementById('my-tooltip');
+    const imcbVis = document.getElementById('imcb-visualizer');
     const anchorPositions = document.querySelectorAll('.anchor-positions button');
     const codeblock = document.querySelector('.code-block')
     let activeButton = anchorPositions[3];
@@ -351,6 +353,7 @@
         if (styles) {
           for (const prop in styles) {
             tooltip.style[prop] = styles[prop];
+            imcbVis.style[prop] = styles[prop];
           }
           let codeText = '';
           for (const prop in styles) {
@@ -359,7 +362,8 @@
           codeblock.textContent = codeText;
         } else {
           // Clear inline styles in case no matching class is found
-          tooltip.style = ''; 
+          tooltip.style = '';
+          imcbVis.style = '';
         }
       });
     }
