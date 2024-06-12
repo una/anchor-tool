@@ -8,6 +8,11 @@
   z-index: 1;
 }
 
+::view-transition-old(--tooltip),
+::view-transition-new(--tooltip) {
+  height: 100%;
+}
+
 #anchor-btn {
   --btn-size: 2rem;
   background: royalblue;
