@@ -5,6 +5,7 @@
   position: absolute;
   view-transition-name: --tooltip; /* double dash is optional */
   position-anchor: --tooltip;
+  z-index: 1;
 }
 
 #anchor-btn {
@@ -20,12 +21,43 @@
   place-content: center;
   border: 2px solid navy;
   anchor-name: --tooltip;
-  
 }
 
-/* #anchor-btn:hover + .tooltip {
-  inset-area: bottom;
-} */
+#imcb-visualizer {
+  position: absolute;
+  position-anchor: --tooltip;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+
+  &.on {
+    display: block;
+  }
+
+  /* &::after {
+    position: absolute;
+    content: "inset-modified containing block";
+    top: 0.25rem;
+    left: 0.25rem;
+  } */
+}
+
+.checkered-bg {
+  --col-1: lightgray;
+  --col-2: #f3f3f3;
+  background: var(--col-1); /* fallback */
+  background-image:  repeating-linear-gradient(45deg, var(--col-1) 25%, transparent 25%, transparent 75%, var(--col-1) 75%, var(--col-1)), repeating-linear-gradient(45deg, var(--col-1) 25%, var(--col-2) 25%, var(--col-2) 75%, var(--col-1) 75%, var(--col-1));
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+}
+
+.preview-block {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  margin-right: 0.4rem;
+}
 
 /* etc */
 
@@ -42,7 +74,7 @@
   }
 }
 
-.logical {
+.options {
   position: absolute;
   top: 100%;
   right: 0;
@@ -232,14 +264,6 @@ img {
   @media (width <= 768px) {
     min-width: 18rem;
   }
-}
-
-.containing-block::after {
-  content: 'containing block';
-  color: steelblue;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 .active {
