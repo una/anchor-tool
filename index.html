@@ -192,7 +192,7 @@
           <p class="sr-only">Open Tooltip</p>
         </button>
         <div class="tooltip top" id="my-tooltip" style="inset-area: top;">Positioned element!</div>
-        <div id="imcb-visualizer" style="inset-area: top;"></div>
+        <div id="imcb-visualizer" class="checkered-bg" style="inset-area: top;"></div>
       </div>
       <div class="code-area">
         <div class="code-block">
@@ -201,20 +201,23 @@
         <button class="copy-button"><p class="sr-only">copy</p><div class="vis"></div></button>
       </div>
     </div>
-    <div class="logical">
+    <div class="options">
       <input id="logical" type="checkbox">
       <label for="logical">Logical properties</label>
+      <input id="imcb-vis" type="checkbox">
+      <label for="imcb-vis"><span class="checkered-bg preview-block"></span>Show inset-modified containing block</label>
     </div>
     
   </div>
   
   <script>
     const tooltip = document.getElementById('my-tooltip');
-    const imcbVis = document.getElementById('imcb-visualizer');
     const anchorPositions = document.querySelectorAll('.anchor-positions button');
     const codeblock = document.querySelector('.code-block')
     let activeButton = anchorPositions[3];
-    const logicalCheckbox = document.querySelector('#logical');
+    const logicalCheckbox = document.getElementById('logical');
+    const imcbCheckbox = document.getElementById('imcb-vis');
+    const imcbVis = document.getElementById('imcb-visualizer');
     let logical = logicalCheckbox.checked;
 
     const cssStyles = {
@@ -377,6 +380,11 @@
       }
 
       updateText();
+    });
+
+    imcbCheckbox.addEventListener('change', () => {
+      imcbVis.classList.toggle('on');
+      console.log('on')
     });
 
     anchorPositions.forEach(button => {
