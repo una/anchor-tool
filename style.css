@@ -48,8 +48,8 @@
   --col-2: #f3f3f3;
   background: var(--col-1); /* fallback */
   background-image:  repeating-linear-gradient(45deg, var(--col-1) 25%, transparent 25%, transparent 75%, var(--col-1) 75%, var(--col-1)), repeating-linear-gradient(45deg, var(--col-1) 25%, var(--col-2) 25%, var(--col-2) 75%, var(--col-1) 75%, var(--col-1));
-  background-position: 0 0, 11px 11px;
-  background-size: 22px 22px;
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
 }
 
 .preview-block {
