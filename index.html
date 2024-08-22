@@ -18,7 +18,7 @@
 </head>
 <body>
   <div class="note">
-    This demo only works in Chromium 125+
+    <code>inset-area</code> was renamed to <code>position-area</code> in Chrome 129+. This demo now only works in Chromium 129+. 
   </div>
   
   <div class="key-and-demo">
@@ -191,13 +191,13 @@
           <p aria-hidden="true">?</p>
           <p class="sr-only">Open Tooltip</p>
         </button>
-        <div class="tooltip top" id="my-tooltip" contenteditable style="inset-area: top;">Positioned element!</div>
-        <div id="imcb-visualizer" class="checkered-bg" style="inset-area: top;"></div>
+        <div class="tooltip top" id="my-tooltip" contenteditable style="position-area: top;">Positioned element!</div>
+        <div id="imcb-visualizer" class="checkered-bg" style="position-area: top;"></div>
       </div>
       <div class="code-area">
-        <div class="code-block">
-          inset-area: top;
-        </div>
+        <code class="code-block">
+          position-area: top;
+        </code>
         <button class="copy-button"><p class="sr-only">copy</p><div class="vis"></div></button>
       </div>
     </div>
@@ -205,7 +205,7 @@
       <input id="logical" type="checkbox">
       <label for="logical">Logical properties</label>
       <input id="imcb-vis" type="checkbox">
-      <label for="imcb-vis"><span class="checkered-bg preview-block"></span>Show inset-modified containing block</label>
+      <label for="imcb-vis"><span class="checkered-bg preview-block"></span>Show position-modified containing block</label>
     </div>
     
   </div>
@@ -222,127 +222,127 @@
 
     const cssStyles = {
       'top': {
-        insetArea: 'top center' 
+        positionArea: 'top center' 
       },
       'top-center': {
-        insetArea: 'top span-left' 
+        positionArea: 'top span-left' 
       },
       'center-top': { 
-        insetArea: 'top span-right' 
+        positionArea: 'top span-right' 
       },
       'top-full': { 
-        insetArea: 'top' 
+        positionArea: 'top' 
       },
       'left': { 
-        insetArea: 'left center' 
+        positionArea: 'left center' 
       },
       'left-center': { 
-        insetArea: 'left span-top' 
+        positionArea: 'left span-top' 
       },
       'center-left': { 
-        insetArea: 'left span-bottom' 
+        positionArea: 'left span-bottom' 
       },
       'left-full': { 
-        insetArea: 'left' 
+        positionArea: 'left' 
       },
       'right': { 
-        insetArea: 'right center' 
+        positionArea: 'right center' 
       },
       'right-center': { 
-        insetArea: 'right span-top' 
+        positionArea: 'right span-top' 
       },
       'center-right': { 
-        insetArea: 'right span-bottom' 
+        positionArea: 'right span-bottom' 
       },
       'right-full': { 
-        insetArea: 'right' 
+        positionArea: 'right' 
       },
       'bottom': { 
-        insetArea: 'bottom center'
+        positionArea: 'bottom center'
       },
       'bottom-center': { 
-        insetArea: 'bottom span-left' 
+        positionArea: 'bottom span-left' 
       },
       'center-bottom': { 
-        insetArea: 'bottom span-right' 
+        positionArea: 'bottom span-right' 
       },
       'bottom-full': { 
-        insetArea: 'bottom' 
+        positionArea: 'bottom' 
       },
       'top-left': { 
-        insetArea: 'top left'
+        positionArea: 'top left'
       },
       'top-right': { 
-        insetArea: 'top right' 
+        positionArea: 'top right' 
       },
       'bottom-left': { 
-        insetArea: 'bottom left' 
+        positionArea: 'bottom left' 
       },
       'bottom-right': { 
-        insetArea: 'bottom right' 
+        positionArea: 'bottom right' 
       }
     };
 
     const logicalStyles = {
       'top': {
-        insetArea: 'block-start center' 
+        positionArea: 'block-start center' 
       },
       'top-center': {
-        insetArea: 'block-start span-inline-start' 
+        positionArea: 'block-start span-inline-start' 
       },
       'center-top': { 
-        insetArea: 'block-start span-inline-end' 
+        positionArea: 'block-start span-inline-end' 
       },
       'top-full': { 
-        insetArea: 'block-start' 
+        positionArea: 'block-start' 
       },
       'left': { 
-        insetArea: 'inline-start center' 
+        positionArea: 'inline-start center' 
       },
       'left-center': { 
-        insetArea: 'inline-start span-block-start' 
+        positionArea: 'inline-start span-block-start' 
       },
       'center-left': { 
-        insetArea: 'inline-start span-block-end' 
+        positionArea: 'inline-start span-block-end' 
       },
       'left-full': { 
-        insetArea: 'inline-start' 
+        positionArea: 'inline-start' 
       },
       'right': { 
-        insetArea: 'inline-end center' 
+        positionArea: 'inline-end center' 
       },
       'right-center': { 
-        insetArea: 'inline-end span-block-start' 
+        positionArea: 'inline-end span-block-start' 
       },
       'center-right': { 
-        insetArea: 'inline-end span-block-end' 
+        positionArea: 'inline-end span-block-end' 
       },
       'right-full': { 
-        insetArea: 'inline-end' 
+        positionArea: 'inline-end' 
       },
       'bottom': { 
-        insetArea: 'block-end center'
+        positionArea: 'block-end center'
       },
       'bottom-center': { 
-        insetArea: 'block-end span-inline-start' 
+        positionArea: 'block-end span-inline-start' 
       },
       'center-bottom': { 
-        insetArea: 'block-end span-inline-end' 
+        positionArea: 'block-end span-inline-end' 
       },
       'bottom-full': { 
-        insetArea: 'block-end' 
+        positionArea: 'block-end' 
       },
       'top-left': { 
-        insetArea: 'start'
+        positionArea: 'start'
       },
       'top-right': { 
-        insetArea: 'block-start inline-end'
+        positionArea: 'block-start inline-end'
       },
       'bottom-left': { 
-        insetArea: 'block-end inline-start' 
+        positionArea: 'block-end inline-start' 
       },
       'bottom-right': { 
-        insetArea: 'end' 
+        positionArea: 'end' 
       }
     };
 
@@ -360,7 +360,7 @@
           }
           let codeText = '';
           for (const prop in styles) {
-            codeText += `inset-area: ${styles[prop]};`; 
+            codeText += `position-area: ${styles[prop]};`; 
           }
           codeblock.textContent = codeText;
         } else {
