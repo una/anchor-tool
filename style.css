@@ -283,12 +283,12 @@ img {
   width: 100%;
   text-align: center;
   padding: 0.5rem;
+}
 
-  code {
-    font-size: 1rem;
-    background: #ffe88c;
-    padding: 0 0.2rem;
-    border-radius: 0.5rem;
-    border: 1px solid gold;
-  }
+.note code {
+  font-size: 1rem;
+  background: #ffe88c;
+  padding: 0 0.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid gold;
 }
