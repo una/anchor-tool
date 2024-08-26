@@ -292,3 +292,34 @@ img {
   border-radius: 0.5rem;
   border: 1px solid gold;
 }
+
+.imcb-question-mark {
+  position: absolute;
+  background: #ddd;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  font-weight: 800;
+  border-radius: 100%;
+  aspect-ratio: 1 / 1;
+  width: 1rem;
+  color: #525252;
+  line-height: 0;
+  border: 1px solid #8a8a8a;
+  anchor-name: --question-mark;
+  left: calc(anchor(--imcb-label right) + 0.3rem);
+  align-self: anchor-center;
+}
+
+.imcb-tooltip {
+  position: absolute;
+  inset: auto;
+  position-anchor: --question-mark;
+  bottom: anchor(
+top);
+  justify-self: anchor-center;
+  background: #0e4965;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
