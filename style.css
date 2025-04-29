@@ -262,7 +262,7 @@ body {
   top: 0;
   left: 0;
   margin: 0;
-  height: calc(100dvh - 4rem);
+  height: calc(100dvh - 8rem);
   align-items: center;
   overflow-x: hidden;
 
