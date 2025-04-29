@@ -1,11 +1,27 @@
+:root {
+  color-scheme: light dark;
+}
+
+@supports (position-area: top) {
+  .note {
+    display: none;
+  }
+}
+
 .tooltip {
-  background: aliceblue;
-  border: 2px solid;
-  padding: 0.5rem;
+  background: #73aaf5;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
   position: absolute;
   view-transition-name: --tooltip; /* double dash is optional */
   position-anchor: --tooltip;
   z-index: 1;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 32px 0px;
+  border: none;
+  font-weight: 300;
+  font-size: 1.5rem;
+  margin: 0.5rem;
 }
 
 ::view-transition-old(--tooltip),
@@ -15,17 +31,19 @@
 
 #anchor-btn {
   --btn-size: 2rem;
-  background: royalblue;
-  color: white;
+  color: #444444;
   font-size: calc(var(--btn-size) - 0.75rem);
-  border-radius: var(--btn-size);
+  /* border-radius: var(--btn-size); */
   height: var(--btn-size);
   width: var(--btn-size);
-  font-weight: 800;
-  display: grid;
   place-content: center;
-  border: 2px solid navy;
   anchor-name: --tooltip;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 7px 0px;
+  border: 1px solid lightgray;
+  background: #f2f2f2;
 }
 
 #imcb-visualizer {
@@ -69,10 +87,13 @@
 .key-and-demo {
   display: grid;
   grid-template-columns: auto auto;
-  border: 1px solid;
+  border: 1px solid light-dark(lightgray, #2d2f2f);
   position: relative;
   bottom: 0;
   top: 2rem;
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  
 
   @media (width <= 768px) {
     grid-template-columns: 1fr;
@@ -90,17 +111,19 @@
   top: 0;
   left: 0;
   display: grid;
-  background: white;
+  background: light-dark(white, #181e1f);
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  padding: 1rem;
   margin: 0;
   width: max-content;
   justify-self: end;
   z-index: 1;
+  border-radius: 2rem 0 0 2rem;
+  padding: 3rem;
 
   @media (width <= 768px) {
     justify-self: center;
+    border-radius: 2rem 2rem 0 0;
   }
 }
 
@@ -113,20 +136,32 @@
   border: none;
   width: 4rem;
   padding: 0;
+  outline: 0px solid #bce0f7;
+  transition: outline 0.2s ease;
+
+  &.active {
+    outline: 4px solid #bce0f7;
+  }
+
+  @media (width <= 768px) {
+    width: clamp(3rem, 15dvw, 5rem);
+  }
 }
 
 .code-area {
   font-family: monospace;
   padding: 1.25rem;
-  background: whitesmoke;
-  border-left: 1px solid lightgray;
   position: relative;
   font-size: 1.2rem;
   width: 23rem;
   height: 3.5rem;
+  padding-left: 1.5rem;
+  background: light-dark(#fafafa, #293032);
+  border-radius: 0 0 2rem 0;
 
   @media (width <= 768px) {
-    width: 19rem;
+    width: calc(100% - 2.8rem);
+    border-radius: 0 0 2rem 2rem;
   }
 }
 
@@ -136,12 +171,13 @@
   top: 0;
   width: 2rem;
   height: 2rem;
-  background-color: steelblue;
+  background-color: #73aaf5;
   color: white;
   border: none;
   padding: 0.5rem;
   transition: background-color 0.25s;
   view-transition-name: code;
+  
 }
 
 .copy-button:hover,
@@ -232,8 +268,7 @@ body {
 
   @media (width <= 768px) {
     height: auto;
-    padding-top: 4rem;
-    padding-bottom: 6rem;
+    margin-bottom: 6rem;
   }
 }
 
@@ -257,7 +292,8 @@ img {
 }
 
 .containing-block {
-  background: lightgray;
+  background: light-dark(white, #181e1f);
+  border-radius: 0rem 2rem 0 0;
   height: calc(100% - 6rem);
   display: grid;
   place-items: center;
@@ -268,11 +304,8 @@ img {
 
   @media (width <= 768px) {
     min-width: 18rem;
+    border-radius: 0;
   }
-}
-
-.active {
-  outline: 2px solid;
 }
 
 .note {
