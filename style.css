@@ -311,6 +311,7 @@ img {
 .note {
   background: lightgoldenrodyellow;
   border-bottom: 1px solid gold;
+  color: black;
   position: absolute;
   top: 0;
   width: 100%;
